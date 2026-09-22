@@ -86,5 +86,10 @@
     <string name="uninstall">Desinstalar</string>
     <string name="add_to_home">Añadir al inicio</string>
     <string name="add_to_dock">Añadir al dock</string>
+    <string name="remove_from_home">Quitar de la pantalla</string>
+    <string name="wallpaper_and_style">Fondos de pantalla y estilo</string>
+    <string name="widgets">Widgets</string>
+    <string name="added_to_home">Añadido a la pantalla de inicio</string>
+    <string name="added_to_dock">Añadido al dock</string>
     <string name="at_a_glance_date_format">EEEE, d \'de\' MMMM</string>
 </resources>

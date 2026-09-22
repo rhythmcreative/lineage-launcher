@@ -1,14 +1,14 @@
 package org.lineageos.launcher.ui
 
+import android.app.role.RoleManager
 import android.content.ClipData
 import android.content.ClipDescription
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.view.GestureDetector
-import android.view.MotionEvent
 import android.view.View
 import android.widget.PopupMenu
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
@@ -28,6 +28,7 @@ import org.lineageos.launcher.dock.DockDragController
 import org.lineageos.launcher.dock.DockPageAdapter
 import org.lineageos.launcher.model.AppInfo
 import org.lineageos.launcher.model.LauncherModel
+import org.lineageos.launcher.model.WorkspaceManager
 import org.lineageos.launcher.settings.LauncherSettingsActivity
 import org.lineageos.launcher.updater.LauncherUpdater
 import java.text.SimpleDateFormat
@@ -35,15 +36,17 @@ import java.util.Date
 import java.util.Locale
 
 /**
- * Main Home Screen Launcher Activity matching LineageOS Trebuchet & GrapheneOS AOSP standards.
- * Supports modern multi-profile app drawer (Personal, Work, Android 15/16/17 Private Space),
- * Alphabetical FastScroller (A-Z), search generation filtering, clean IME dismissal,
- * contextual long-press options, and multi-page scrollable dock.
+ * Main Home Screen Launcher Activity matching Nova Launcher & LineageOS Trebuchet.
+ * Features an interactive multi-page desktop workspace with persistent app placement,
+ * desktop context menus (Wallpapers, Widgets, Home settings), multi-page scrollable dock,
+ * and a full-featured App Drawer with modern Android 16/17 LauncherApps APIs.
  */
 class LauncherActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLauncherBinding
     private lateinit var launcherModel: LauncherModel
+    private lateinit var workspaceManager: WorkspaceManager
+    private lateinit var desktopAdapter: DesktopPageAdapter
     private lateinit var dockAdapter: DockPageAdapter
     private lateinit var drawerAdapter: AppDrawerAdapter
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<android.widget.LinearLayout>
@@ -58,6 +61,7 @@ class LauncherActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         insetsController = WindowCompat.getInsetsController(window, binding.root)
+        workspaceManager = WorkspaceManager(this)
 
         // Initialize LauncherModel with real-time LauncherApps callback
         launcherModel = LauncherModel(this) {
@@ -65,10 +69,10 @@ class LauncherActivity : AppCompatActivity() {
         }
 
         setupAtAGlance()
+        setupDesktopWorkspace()
         setupDock()
         setupAppDrawer()
         setupQsb()
-        setupDesktopGestures()
         loadInstalledApps()
 
         // Handle back gesture to collapse drawer if expanded
@@ -93,13 +97,13 @@ class LauncherActivity : AppCompatActivity() {
     private fun checkDefaultLauncher() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             try {
-                val roleManager = getSystemService(android.app.role.RoleManager::class.java)
-                if (roleManager != null && roleManager.isRoleAvailable(android.app.role.RoleManager.ROLE_HOME) && !roleManager.isRoleHeld(android.app.role.RoleManager.ROLE_HOME)) {
-                    val intent = roleManager.createRequestRoleIntent(android.app.role.RoleManager.ROLE_HOME)
+                val roleManager = getSystemService(RoleManager::class.java)
+                if (roleManager != null && roleManager.isRoleAvailable(RoleManager.ROLE_HOME) && !roleManager.isRoleHeld(RoleManager.ROLE_HOME)) {
+                    val intent = roleManager.createRequestRoleIntent(RoleManager.ROLE_HOME)
                     startActivity(intent)
                 }
             } catch (e: Exception) {
-                // Ignore fallback
+                // Fallback ignored
             }
         }
     }
@@ -122,6 +126,20 @@ class LauncherActivity : AppCompatActivity() {
 
         binding.atAGlanceDate.text = dateFormat.format(now)
         binding.atAGlanceSubtitle.text = timeFormat.format(now)
+    }
+
+    private fun setupDesktopWorkspace() {
+        desktopAdapter = DesktopPageAdapter(
+            context = this,
+            onAppClicked = { app -> launchApp(app) },
+            onAppLongClicked = { app, view -> showDesktopAppContextMenu(app, view) },
+            onEmptySpaceLongClicked = { showDesktopLongPressMenu(binding.workspaceViewPager) }
+        )
+
+        binding.workspaceViewPager.apply {
+            adapter = desktopAdapter
+            offscreenPageLimit = 2
+        }
     }
 
     private fun setupDock() {
@@ -186,7 +204,7 @@ class LauncherActivity : AppCompatActivity() {
                 bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
             },
             onAppLongClicked = { app, view ->
-                showAppContextMenu(app, view)
+                showDrawerAppContextMenu(app, view)
             }
         )
 
@@ -237,28 +255,6 @@ class LauncherActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupDesktopGestures() {
-        val gestureDetector = GestureDetector(this, object : GestureDetector.SimpleOnGestureListener() {
-            override fun onDoubleTap(e: MotionEvent): Boolean {
-                val prefs = PreferenceManager.getDefaultSharedPreferences(this@LauncherActivity)
-                if (prefs.getBoolean("pref_sleep_gesture", false)) {
-                    // Double-tap to sleep / turn off display intent
-                    val lockIntent = Intent(Intent.ACTION_MAIN).apply {
-                        addCategory(Intent.CATEGORY_HOME)
-                    }
-                    startActivity(lockIntent)
-                    return true
-                }
-                return false
-            }
-        })
-
-        binding.desktopWorkspace.setOnTouchListener { _, event ->
-            gestureDetector.onTouchEvent(event)
-            true
-        }
-    }
-
     private fun loadInstalledApps() {
         lifecycleScope.launch {
             val apps = launcherModel.loadApps()
@@ -266,19 +262,14 @@ class LauncherActivity : AppCompatActivity() {
 
             drawerAdapter.setApps(apps)
             binding.drawerFastScroller.setApps(apps)
-
-            // Setup profile tabs
             setupProfileTabs(apps)
 
-            // Distribute first 10 apps into dock pages
-            val dockPages = mutableListOf<List<AppInfo>>()
-            val chunked = apps.take(10).chunked(5)
-            if (chunked.isNotEmpty()) {
-                dockPages.addAll(chunked)
-            } else {
-                dockPages.add(emptyList())
-            }
+            // Load and populate desktop workspace pages
+            val desktopPages = workspaceManager.loadDesktopPages(apps)
+            desktopAdapter.setPages(desktopPages)
 
+            // Load and populate dock pages
+            val dockPages = workspaceManager.loadDockPages(apps)
             dockAdapter.setDockPages(dockPages)
             binding.dockIndicators.setPageCount(dockAdapter.getPageCount())
         }
@@ -311,6 +302,7 @@ class LauncherActivity : AppCompatActivity() {
     private fun applyPreferences() {
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
         drawerAdapter.refreshPreferences()
+        desktopAdapter.refreshPreferences()
 
         // Dock search bar visibility
         val showHotseatQsb = prefs.getBoolean("pref_show_hotseat_qsb", true)
@@ -325,29 +317,113 @@ class LauncherActivity : AppCompatActivity() {
         binding.drawerFastScroller.visibility = if (showFastScroller) View.VISIBLE else View.GONE
     }
 
-    private fun showAppContextMenu(app: AppInfo, anchor: View) {
+    /**
+     * Classic Nova Launcher / Trebuchet menu shown when long-pressing empty desktop area.
+     */
+    private fun showDesktopLongPressMenu(anchor: View) {
         val popup = PopupMenu(this, anchor)
-        popup.menu.add(0, 1, 0, R.string.app_info)
-        popup.menu.add(0, 2, 1, R.string.uninstall)
-        popup.menu.add(0, 3, 2, R.string.add_to_dock)
+        popup.menu.add(0, 1, 0, R.string.wallpaper_and_style)
+        popup.menu.add(0, 2, 1, R.string.widgets)
+        popup.menu.add(0, 3, 2, R.string.settings_title)
+
+        popup.setOnMenuItemClickListener { item ->
+            when (item.itemId) {
+                1 -> {
+                    // Open system Wallpaper & Style picker
+                    try {
+                        val intent = Intent(Intent.ACTION_SET_WALLPAPER)
+                        startActivity(Intent.createChooser(intent, getString(R.string.wallpaper_and_style)))
+                    } catch (e: Exception) {
+                        Toast.makeText(this, R.string.wallpaper_and_style, Toast.LENGTH_SHORT).show()
+                    }
+                    true
+                }
+                2 -> {
+                    // Open widgets intent or toast
+                    Toast.makeText(this, R.string.widgets, Toast.LENGTH_SHORT).show()
+                    true
+                }
+                3 -> {
+                    // Open launcher settings
+                    startActivity(Intent(this, LauncherSettingsActivity::class.java))
+                    true
+                }
+                else -> false
+            }
+        }
+        popup.show()
+    }
+
+    /**
+     * Context menu shown on long-pressing an app shortcut on the desktop.
+     */
+    private fun showDesktopAppContextMenu(app: AppInfo, anchor: View) {
+        val popup = PopupMenu(this, anchor)
+        popup.menu.add(0, 1, 0, R.string.remove_from_home)
+        popup.menu.add(0, 2, 1, R.string.app_info)
+        popup.menu.add(0, 3, 2, R.string.uninstall)
+
+        popup.setOnMenuItemClickListener { item ->
+            when (item.itemId) {
+                1 -> {
+                    val currentPage = binding.workspaceViewPager.currentItem
+                    desktopAdapter.removeAppFromPage(currentPage, app)
+                    workspaceManager.saveDesktopPages(desktopAdapter.getPages())
+                    true
+                }
+                2 -> {
+                    launcherModel.openAppDetails(app)
+                    true
+                }
+                3 -> {
+                    launcherModel.uninstallApp(app)
+                    true
+                }
+                else -> false
+            }
+        }
+        popup.show()
+    }
+
+    /**
+     * Context menu shown on long-pressing an app inside the App Drawer.
+     */
+    private fun showDrawerAppContextMenu(app: AppInfo, anchor: View) {
+        val popup = PopupMenu(this, anchor)
+        popup.menu.add(0, 1, 0, R.string.add_to_home)
+        popup.menu.add(0, 2, 1, R.string.add_to_dock)
+        popup.menu.add(0, 3, 2, R.string.app_info)
+        popup.menu.add(0, 4, 3, R.string.uninstall)
 
         popup.setOnMenuItemClickListener { item ->
             when (item.itemId) {
                 1 -> {
                     dismissIme()
-                    launcherModel.openAppDetails(app)
+                    val currentPage = binding.workspaceViewPager.currentItem
+                    desktopAdapter.addAppToPage(currentPage, app)
+                    workspaceManager.saveDesktopPages(desktopAdapter.getPages())
+                    bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+                    Toast.makeText(this, R.string.added_to_home, Toast.LENGTH_SHORT).show()
                     true
                 }
                 2 -> {
                     dismissIme()
-                    launcherModel.uninstallApp(app)
+                    val currentDockPage = binding.dockViewPager.currentItem
+                    dockAdapter.addAppToCurrentPage(currentDockPage, app)
+                    workspaceManager.saveDockPages(dockAdapter.getPages())
+                    binding.dockIndicators.setPageCount(dockAdapter.getPageCount())
+                    bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+                    Toast.makeText(this, R.string.added_to_dock, Toast.LENGTH_SHORT).show()
                     true
                 }
                 3 -> {
                     dismissIme()
-                    dockAdapter.addAppToCurrentPage(binding.dockViewPager.currentItem, app)
-                    binding.dockIndicators.setPageCount(dockAdapter.getPageCount())
-                    bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+                    launcherModel.openAppDetails(app)
+                    true
+                }
+                4 -> {
+                    dismissIme()
+                    launcherModel.uninstallApp(app)
                     true
                 }
                 else -> false

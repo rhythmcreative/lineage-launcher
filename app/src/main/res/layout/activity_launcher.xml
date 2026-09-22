@@ -54,13 +54,13 @@
 
         </LinearLayout>
 
-        <!-- Desktop Empty / App Grid Workspace Area -->
-        <FrameLayout
-            android:id="@+id/desktop_workspace"
+        <!-- Interactive Multi-Page Desktop Workspace (ViewPager2) -->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/workspace_view_pager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:clickable="true"
-            android:focusable="true"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
             app:layout_constraintTop_toBottomOf="@id/at_a_glance_container"
             app:layout_constraintBottom_toTopOf="@id/hotseat_dock_container"
             app:layout_constraintStart_toStartOf="parent"

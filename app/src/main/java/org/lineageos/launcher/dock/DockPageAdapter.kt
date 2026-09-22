@@ -40,6 +40,8 @@ class DockPageAdapter(
 
     fun getPageCount(): Int = pages.size
 
+    fun getPages(): List<List<AppInfo>> = pages
+
     fun addEmptyPage(): Int {
         pages.add(mutableListOf())
         val newIndex = pages.size - 1
