@@ -36,7 +36,7 @@ class LauncherActivity : AppCompatActivity() {
     private lateinit var launcherModel: LauncherModel
     private lateinit var dockAdapter: DockPageAdapter
     private lateinit var drawerAdapter: AppDrawerAdapter
-    private lateinit var bottomSheetBehavior: BottomSheetBehavior<View>
+    private lateinit var bottomSheetBehavior: BottomSheetBehavior<android.widget.LinearLayout>
     private lateinit var dockDragController: DockDragController
 
     override fun onCreate(savedInstanceState: Bundle?) {

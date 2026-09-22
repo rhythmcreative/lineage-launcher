@@ -1,61 +1,51 @@
-<h1 align="center">Lineage Launcher</h1>
+<h1 align="center">lineage-launcher </h1>
 
 <div align="center">
 
-<p><i> LineageOS Launcher (Trebuchet) with Scrollable Dock, Dynamic Drag-to-New-Page, Monochrome Animations, and Auto-Updater. </i></p>
+<p><i> Modern LineageOS Trebuchet launcher with multi-page dock and auto-updater. </i></p>
 
 [![LineageOS](https://img.shields.io/badge/LineageOS-167C80?style=for-the-badge&logo=lineageos&logoColor=white)](https://lineageos.org/)
-[![Android](https://img.shields.io/badge/Android%2010--16-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://www.android.com/)
-[![Material 3](https://img.shields.io/badge/Material%203-00668B?style=for-the-badge&logo=materialdesign&logoColor=white)](https://m3.material.io/)
-[![GitHub Release](https://img.shields.io/badge/Release-APK-2EA44F?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rhythmcreative/lineage-launcher/releases/latest)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=for-the-badge)](LICENSE)
+[![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://www.android.com/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)](https://kotlinlang.org/)
+[![Material You](https://img.shields.io/badge/Material%20You-000000?style=for-the-badge&logo=materialdesign&logoColor=white)](https://m3.material.io/)
+[![Release](https://img.shields.io/badge/Release-APK-blue?style=for-the-badge&logo=github)](https://github.com/rhythmcreative/lineage-launcher/releases)
 
 </div>
 
+
+
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=23&pause=1000&color=F7F7F7&vCenter=true&width=435&height=30&lines=ABOUT)](https://git.io/typing-svg)
 
-This project provides a modern, standalone Android home screen launcher based on **LineageOS Launcher3 (Trebuchet)**.
+This project provides a modern home launcher based on LineageOS Launcher3 (Trebuchet).
 
-It extends the official Trebuchet experience with a fluid **multi-page scrollable dock**, **drag-to-new-page expansion**, **Material 3 monochrome aesthetics**, and a **built-in in-app auto-updater** connected to GitHub Releases.
+It is customized with a scrollable multi-page dock, drag-and-drop page creation, pure monochrome Material You animations, and an in-app updater.
 
-Designed for a seamless, clean, and reliable stock Android experience on LineageOS, Pixel, and any Android 10+ device.
+It is designed for a simple, fluid, and reliable LineageOS experience.
 
 ______________________________________________________________________
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=23&pause=1000&color=F7F7F7&vCenter=true&width=435&height=30&lines=FEATURES)](https://git.io/typing-svg)
 
-- **Multi-Page Scrollable Dock:** Swipe horizontally across multiple pages of essential applications in the bottom dock
-- **Drag-to-New-Page:** Drag any app icon to the dock border to dynamically create a new page after 450ms of hover
-- **Infinite Looping:** Wrap continuously from the last dock page back to the first
-- **Adaptive Monochrome Indicators:** Material 3 page dots with protective contrast halos for maximum visibility on all wallpapers
-- **Material 3 Monochrome & Blanco y Negro:** Pure black & white vector animation previews and themed icons without blue dots or color clashes
-- **Lottie Gesture Showcase:** Embedded `dock_swipe.json` animation demonstrating fluid swipe gestures
-- **Built-in In-App Auto-Updater:** Automatically checks GitHub Releases, downloads APK updates, and installs them with a single tap
-- **Lightweight & Standalone:** Runs as an independent application on Android 10, 11, 12, 13, 14, 15, and 16
+• Multi-page scrollable dock with infinite looping
+• Drag-to-new-page dock expansion (450ms trigger)
+• Monochrome Material You dock preview and vectors
+• Adaptive contrast page indicator dots with halo
+• Lottie swipe gesture tutorial integration
+• Integrated in-app auto-updater via GitHub Releases
+• Stock AOSP / Trebuchet lightweight architecture
+• Support for Android 10 through Android 16
 
 ______________________________________________________________________
 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=23&pause=1000&color=F7F7F7&vCenter=true&width=435&height=30&lines=DOWNLOAD+%2F+INSTALL)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=23&pause=1000&color=F7F7F7&vCenter=true&width=435&height=30&lines=INSTALL)](https://git.io/typing-svg)
 
-1. Download the latest **LineageLauncher APK** from GitHub Releases:
-   - 👉 **[Download LineageLauncher APK](https://github.com/rhythmcreative/lineage-launcher/releases/latest)**
-2. Open the downloaded file and tap **Install**.
-3. Set **Lineage Launcher** as your default home app in **Settings → Apps → Default apps → Home app**.
+1. Download the latest APK from the [Releases](https://github.com/rhythmcreative/lineage-launcher/releases/latest) section.
+2. Install the APK on your device (`adb install -r LineageLauncher.apk` or tap the file in your file manager).
+3. Set **Lineage Launcher** as your default home app under **Settings → Apps → Default apps → Home app**.
 
-______________________________________________________________________
+(Or use the button below for a more easier install)
 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=23&pause=1000&color=F7F7F7&vCenter=true&width=435&height=30&lines=BUILDING)](https://git.io/typing-svg)
-
-```bash
-git clone https://github.com/rhythmcreative/lineage-launcher.git
-cd lineage-launcher
-./gradlew assembleRelease
-```
-
-The compiled APK will be generated at:
-```
-app/build/outputs/apk/release/app-release.apk
-```
+[![Download APK](https://img.shields.io/badge/Download-LineageLauncher.apk-2EA44F?style=for-the-badge&logo=android&logoColor=white)](https://github.com/rhythmcreative/lineage-launcher/releases/latest)
 
 ______________________________________________________________________
 

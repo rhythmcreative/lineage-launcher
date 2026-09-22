@@ -51,6 +51,6 @@
         android:layout_height="wrap_content"
         android:text="@string/close"
         android:layout_marginTop="32dp"
-        style="@style/Widget.Material3.Button.Tonal" />
+        style="@style/Widget.Material3.Button.TonalButton" />
 
 </LinearLayout>

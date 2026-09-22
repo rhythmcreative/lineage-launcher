@@ -21,7 +21,6 @@
             android:name=".ui.LauncherActivity"
             android:exported="true"
             android:launchMode="singleTask"
-            android:clearTaskOnReset="true"
             android:stateNotNeeded="true"
             android:windowSoftInputMode="adjustPan"
             android:theme="@style/Theme.LineageLauncher.Home">
