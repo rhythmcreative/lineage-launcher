@@ -13,4 +13,6 @@
     <color name="indicator_halo">#80FFFFFF</color>
     <color name="qsb_background">#33000000</color>
     <color name="qsb_text">#1C1C1E</color>
+    <color name="at_a_glance_title">#FFFFFF</color>
+    <color name="at_a_glance_sub">#E0E0E0</color>
 </resources>

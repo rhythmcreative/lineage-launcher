@@ -1,24 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2022 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <!-- Outer Material You Circle -->
+  <group>
+    <clip-path
+        android:pathData="M0,0h108v108h-108z"/>
     <path
-        android:fillColor="#1C1C1E"
-        android:pathData="M54,54m-44,0a44,44 0,1 1,88 0a44,44 0,1 1,-88 0" />
-    <!-- Modern Stylized Trebuchet / Launcher Home Icon -->
+        android:pathData="M108,0H0V108H108V0ZM42,28C38.686,28 36,30.686 36,34V74C36,77.314 38.686,80 42,80H66C69.314,80 72,77.314 72,74V34C72,30.686 69.314,28 66,28H42Z"
+        android:fillColor="#1A2222"
+        android:fillType="evenOdd"/>
+    <!-- Phone Screen Highlight Line -->
     <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M54,28L32,48v32h14v-20h16v20h14V48L54,28z" />
-    <!-- Scrollable Dock Dots -->
-    <path
-        android:fillColor="#80FFFFFF"
-        android:pathData="M44,66m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0" />
-    <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M54,66m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0" />
-    <path
-        android:fillColor="#80FFFFFF"
-        android:pathData="M64,66m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0" />
+        android:pathData="M48,32h12v2h-12z"
+        android:fillColor="#80FFFFFF"/>
+  </group>
 </vector>

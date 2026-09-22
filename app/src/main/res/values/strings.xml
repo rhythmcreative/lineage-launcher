@@ -1,6 +1,45 @@
 <resources>
     <string name="app_name">Lineage Launcher</string>
     <string name="settings_title">Home settings</string>
+    
+    <!-- Categories -->
+    <string name="home_screen_category">Home Screen</string>
+    <string name="app_drawer_category">App Drawer</string>
+    <string name="dock_category">Dock &amp; Gestures</string>
+    <string name="appearance_category">Appearance &amp; Badging</string>
+    <string name="updates_category">Updates &amp; About</string>
+    
+    <!-- Home Screen Settings -->
+    <string name="settings_lock_layout_title">Lock layout</string>
+    <string name="settings_lock_layout_summary">Prevent changes to the home screen desktop icons</string>
+    <string name="auto_add_shortcuts_label">Add app icons to Home screen</string>
+    <string name="auto_add_shortcuts_description">For newly installed applications</string>
+    <string name="desktop_show_labels">Show labels on desktop</string>
+    <string name="desktop_show_labels_summary">Display text titles below home screen icons</string>
+    <string name="allow_rotation_title">Allow Home screen rotation</string>
+    <string name="allow_rotation_summary">When phone is rotated in landscape mode</string>
+    <string name="pref_sleep_gesture_title">Double-tap to sleep</string>
+    <string name="pref_sleep_gesture_summary">Double-tap on empty space on the home screen to turn off screen</string>
+    <string name="grid_size_title">Icon grid</string>
+    <string name="grid_size_summary">Grid dimensions for desktop workspace</string>
+    <string name="show_desktop_qsb_title">At-a-Glance &amp; Search bar</string>
+    <string name="show_desktop_qsb_summary">Display the top date widget and search bar</string>
+
+    <!-- App Drawer Settings -->
+    <string name="drawer_show_labels">Show labels in app drawer</string>
+    <string name="drawer_show_labels_summary">Display text titles below drawer icons</string>
+    <string name="pref_themed_icons_title">Themed monochrome icons</string>
+    <string name="pref_themed_icons_summary">Apply pure Material You monochrome aesthetic in drawer</string>
+    <string name="drawer_open_keyboard_title">Open keyboard automatically</string>
+    <string name="drawer_open_keyboard_summary">Focus search and open keyboard when app drawer is expanded</string>
+    <string name="fast_scroller_title">Alphabetical fast scroller (A-Z)</string>
+    <string name="fast_scroller_summary">Side alphabetical index bar for rapid navigation</string>
+    <string name="pref_suggestions_title">App suggestions</string>
+    <string name="pref_suggestions_summary">Show predicted and recently opened apps at top</string>
+    <string name="hidden_apps_title">Hidden apps</string>
+    <string name="hidden_apps_summary">Manage apps hidden from the app drawer</string>
+
+    <!-- Dock Settings -->
     <string name="dock_settings_title">Scrollable Dock</string>
     <string name="dock_settings_summary">Configure pages, looping, and indicators for the bottom dock</string>
     <string name="enable_scrollable_dock">Enable scrollable dock</string>
@@ -10,14 +49,19 @@
     <string name="page_indicators">Page indicators</string>
     <string name="page_indicators_summary">Shows adaptive Material 3 monochrome dots indicating active dock page</string>
     <string name="dock_drag_to_new_page">Drag to new page</string>
-    <string name="dock_drag_to_new_page_summary">Dragging an app to the dock border dynamically opens a new page</string>
+    <string name="dock_drag_to_new_page_summary">Dragging an app to the dock border dynamically opens a new page (450ms)</string>
     <string name="dock_pages_count">Dock pages</string>
+    <string name="show_hotseat_qsb_title">Dock search bar</string>
+    <string name="show_hotseat_qsb_summary">Display Quick Search Box directly below dock icons</string>
     <string name="dock_animation_preview">Animation &amp; Preview</string>
     <string name="play_lottie_animation">Play Lottie Swipe Gesture</string>
     <string name="play_lottie_animation_summary">Demonstrates dock navigation gesture with motion assist</string>
     
+    <!-- Appearance & Badging -->
+    <string name="notification_dots_title">Notification dots</string>
+    <string name="notification_dots_summary">Display badge dots on icons when apps have active notifications</string>
+
     <!-- Updates -->
-    <string name="updates_category">Updates</string>
     <string name="check_for_updates">Check for updates</string>
     <string name="check_for_updates_summary">Version %1$s • Check GitHub for new releases</string>
     <string name="auto_update_check">Check automatically on launch</string>
@@ -32,8 +76,15 @@
     <string name="cancel">Cancel</string>
     <string name="close">Close</string>
 
-    <!-- UI -->
+    <!-- Drawer Tabs & Context Menus -->
     <string name="search_apps">Search apps…</string>
     <string name="apps_drawer">All apps</string>
+    <string name="tab_all_apps">All</string>
+    <string name="tab_work_apps">Work</string>
+    <string name="tab_private_space">Private</string>
+    <string name="app_info">App info</string>
+    <string name="uninstall">Uninstall</string>
+    <string name="add_to_home">Add to Home</string>
+    <string name="add_to_dock">Add to Dock</string>
     <string name="at_a_glance_date_format">EEEE, MMM d</string>
 </resources>

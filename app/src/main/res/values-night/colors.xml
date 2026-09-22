@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Dark Mode Colors (Monochrome AMOLED & Material You) -->
-    <color name="launcher_background">#121212</color>
-    <color name="surface_container">#1E1E1E</color>
-    <color name="surface_container_high">#282828</color>
-    <color name="on_surface">#FFFFFF</color>
+    <!-- Dark Mode Colors (Clean Monochrome & Material You) -->
+    <color name="launcher_background">#000000</color>
+    <color name="surface_container">#1A1A1A</color>
+    <color name="surface_container_high">#242424</color>
+    <color name="on_surface">#EDEDED</color>
     <color name="on_surface_variant">#A0A0A0</color>
     <color name="dock_background">#33FFFFFF</color>
-    <color name="dock_border">#4DFFFFFF</color>
+    <color name="dock_border">#20FFFFFF</color>
     <color name="indicator_active">#FFFFFF</color>
-    <color name="indicator_inactive">#55FFFFFF</color>
-    <color name="indicator_halo">#B3000000</color>
+    <color name="indicator_inactive">#50FFFFFF</color>
+    <color name="indicator_halo">#40000000</color>
     <color name="qsb_background">#33FFFFFF</color>
-    <color name="qsb_text">#FFFFFF</color>
+    <color name="qsb_text">#EDEDED</color>
+    <color name="at_a_glance_title">#FFFFFF</color>
+    <color name="at_a_glance_sub">#E0E0E0</color>
 </resources>

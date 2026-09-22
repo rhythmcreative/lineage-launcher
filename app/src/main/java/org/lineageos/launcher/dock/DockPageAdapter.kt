@@ -56,6 +56,18 @@ class DockPageAdapter(
         return true
     }
 
+    fun addAppToCurrentPage(pageIndex: Int, app: AppInfo): Boolean {
+        if (pageIndex in 0 until pages.size && pages[pageIndex].size < 5) {
+            pages[pageIndex].add(app)
+            notifyItemChanged(pageIndex)
+            return true
+        }
+        val newPage = addEmptyPage()
+        pages[newPage].add(app)
+        notifyItemChanged(newPage)
+        return true
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DockPageViewHolder {
         val layout = LinearLayout(context).apply {
             layoutParams = ViewGroup.LayoutParams(

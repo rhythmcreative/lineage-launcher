@@ -1,39 +1,90 @@
 <resources>
     <string name="app_name">Lineage Launcher</string>
-    <string name="settings_title">Ajustes de pantalla de inicio</string>
-    <string name="dock_settings_title">Dock desplazable</string>
-    <string name="dock_settings_summary">Configura páginas, bucle e indicadores para el dock inferior</string>
-    <string name="enable_scrollable_dock">Activar dock desplazable</string>
-    <string name="enable_scrollable_dock_summary">Permite la navegación por páginas en la fila inferior</string>
-    <string name="infinite_scroll">Desplazamiento infinito (bucle)</string>
-    <string name="infinite_scroll_summary">Permite pasar continuamente de la última página a la primera</string>
+    <string name="settings_title">Ajustes de inicio</string>
+    
+    <!-- Categorías -->
+    <string name="home_screen_category">Pantalla de inicio</string>
+    <string name="app_drawer_category">Menú de aplicaciones</string>
+    <string name="dock_category">Dock y gestos</string>
+    <string name="appearance_category">Apariencia y notificaciones</string>
+    <string name="updates_category">Actualizaciones y acerca de</string>
+    
+    <!-- Ajustes de Pantalla de Inicio -->
+    <string name="settings_lock_layout_title">Bloquear diseño</string>
+    <string name="settings_lock_layout_summary">Evitar cambios o movimientos en los iconos del escritorio</string>
+    <string name="auto_add_shortcuts_label">Añadir iconos a la pantalla de inicio</string>
+    <string name="auto_add_shortcuts_description">Para aplicaciones recién instaladas</string>
+    <string name="desktop_show_labels">Mostrar nombres en el escritorio</string>
+    <string name="desktop_show_labels_summary">Mostrar etiquetas de texto debajo de los iconos</string>
+    <string name="allow_rotation_title">Permitir rotación de inicio</string>
+    <string name="allow_rotation_summary">Rotar pantalla de inicio en modo horizontal</string>
+    <string name="pref_sleep_gesture_title">Doble toque para suspender</string>
+    <string name="pref_sleep_gesture_summary">Toca dos veces un espacio vacío para apagar la pantalla</string>
+    <string name="grid_size_title">Rejilla de iconos</string>
+    <string name="grid_size_summary">Dimensiones de la cuadrícula de iconos del escritorio</string>
+    <string name="show_desktop_qsb_title">At-a-Glance y barra de búsqueda</string>
+    <string name="show_desktop_qsb_summary">Mostrar fecha inteligente y barra superior</string>
+
+    <!-- Ajustes del Menú de Aplicaciones -->
+    <string name="drawer_show_labels">Mostrar nombres en el menú</string>
+    <string name="drawer_show_labels_summary">Mostrar títulos de texto debajo de los iconos del menú</string>
+    <string name="pref_themed_icons_title">Iconos temáticos monocromáticos</string>
+    <string name="pref_themed_icons_summary">Aplicar diseño monocromático Material You en el menú</string>
+    <string name="drawer_open_keyboard_title">Abrir teclado automáticamente</string>
+    <string name="drawer_open_keyboard_summary">Desplegar el teclado y enfocar búsqueda al abrir el menú</string>
+    <string name="fast_scroller_title">Barra de desplazamiento rápido A-Z</string>
+    <string name="fast_scroller_summary">Barra lateral alfabética para navegación instantánea</string>
+    <string name="pref_suggestions_title">Sugerencias de aplicaciones</string>
+    <string name="pref_suggestions_summary">Mostrar aplicaciones sugeridas arriba según uso reciente</string>
+    <string name="hidden_apps_title">Aplicaciones ocultas</string>
+    <string name="hidden_apps_summary">Gestionar aplicaciones ocultas del menú</string>
+
+    <!-- Ajustes del Dock -->
+    <string name="dock_settings_title">Dock deslizable</string>
+    <string name="dock_settings_summary">Configura páginas, bucle continuo e indicadores para el dock</string>
+    <string name="enable_scrollable_dock">Habilitar dock deslizable</string>
+    <string name="enable_scrollable_dock_summary">Permite múltiples páginas horizontales de iconos en el dock</string>
+    <string name="infinite_scroll">Desplazamiento en bucle continuo</string>
+    <string name="infinite_scroll_summary">Permite pasar suavemente de la última página a la primera</string>
     <string name="page_indicators">Indicadores de página</string>
-    <string name="page_indicators_summary">Muestra puntos adaptativos Material 3 monocromáticos indicando la página activa</string>
+    <string name="page_indicators_summary">Muestra puntos adaptativos Material You con halos de contraste</string>
     <string name="dock_drag_to_new_page">Arrastrar a nueva página</string>
-    <string name="dock_drag_to_new_page_summary">Arrastrar una app al borde del dock abre dinámicamente una nueva página</string>
+    <string name="dock_drag_to_new_page_summary">Arrastrar un icono al borde del dock crea dinámicamente una nueva página (450ms)</string>
     <string name="dock_pages_count">Páginas del dock</string>
-    <string name="dock_animation_preview">Animación y Previsualización</string>
-    <string name="play_lottie_animation">Ver animación de gesto Lottie</string>
-    <string name="play_lottie_animation_summary">Demuestra el gesto de deslizamiento del dock con asistencia de movimiento</string>
+    <string name="show_hotseat_qsb_title">Barra de búsqueda en el dock</string>
+    <string name="show_hotseat_qsb_summary">Mostrar barra de búsqueda directamente bajo el dock</string>
+    <string name="dock_animation_preview">Animación y vista previa</string>
+    <string name="play_lottie_animation">Reproducir animación Lottie de deslizamiento</string>
+    <string name="play_lottie_animation_summary">Demostración interactiva del gesto del dock</string>
+    
+    <!-- Apariencia y Notificaciones -->
+    <string name="notification_dots_title">Puntos de notificación</string>
+    <string name="notification_dots_summary">Muestra un punto sobre los iconos de apps con notificaciones activas</string>
 
     <!-- Actualizaciones -->
-    <string name="updates_category">Actualizaciones</string>
     <string name="check_for_updates">Buscar actualizaciones</string>
-    <string name="check_for_updates_summary">Versión %1$s • Buscar nuevas versiones en GitHub</string>
-    <string name="auto_update_check">Buscar automáticamente al iniciar</string>
-    <string name="auto_update_check_summary">Avisar cuando se publique una nueva versión en GitHub</string>
+    <string name="check_for_updates_summary">Versión %1$s • Comprobar nuevas versiones en GitHub</string>
+    <string name="auto_update_check">Comprobar automáticamente al iniciar</string>
+    <string name="auto_update_check_summary">Avisar si hay una nueva versión disponible en GitHub</string>
     <string name="checking_updates">Buscando actualizaciones…</string>
-    <string name="no_updates_available">Ya tienes la última versión instalada (%1$s)</string>
-    <string name="update_available_title">Nueva versión disponible: %1$s</string>
-    <string name="update_download_install">Descargar e Instalar</string>
+    <string name="no_updates_available">Tienes la última versión (%1$s)</string>
+    <string name="update_available_title">Actualización disponible: %1$s</string>
+    <string name="update_download_install">Descargar e instalar</string>
     <string name="update_downloading">Descargando actualización…</string>
-    <string name="update_failed">No se pudo comprobar la actualización. Revisa la conexión.</string>
-    <string name="changelog">Notas de la versión</string>
+    <string name="update_failed">Error al buscar actualizaciones. Comprueba la conexión.</string>
+    <string name="changelog">Registro de cambios</string>
     <string name="cancel">Cancelar</string>
     <string name="close">Cerrar</string>
 
-    <!-- Interfaz -->
+    <!-- Menú y Pestañas -->
     <string name="search_apps">Buscar aplicaciones…</string>
     <string name="apps_drawer">Todas las aplicaciones</string>
+    <string name="tab_all_apps">Todas</string>
+    <string name="tab_work_apps">Trabajo</string>
+    <string name="tab_private_space">Privado</string>
+    <string name="app_info">Información de la app</string>
+    <string name="uninstall">Desinstalar</string>
+    <string name="add_to_home">Añadir al inicio</string>
+    <string name="add_to_dock">Añadir al dock</string>
     <string name="at_a_glance_date_format">EEEE, d \'de\' MMMM</string>
 </resources>

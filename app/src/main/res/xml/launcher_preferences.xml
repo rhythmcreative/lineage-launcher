@@ -2,19 +2,121 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory app:title="@string/dock_settings_title">
+    <!-- Categoría: Pantalla de inicio -->
+    <PreferenceCategory app:title="@string/home_screen_category">
+        <SwitchPreferenceCompat
+            app:key="pref_workspace_lock"
+            app:defaultValue="false"
+            app:title="@string/settings_lock_layout_title"
+            app:summary="@string/settings_lock_layout_summary" />
+
+        <SwitchPreferenceCompat
+            app:key="pref_add_icon_to_home"
+            app:defaultValue="true"
+            app:title="@string/auto_add_shortcuts_label"
+            app:summary="@string/auto_add_shortcuts_description" />
+
+        <SwitchPreferenceCompat
+            app:key="pref_desktop_show_labels"
+            app:defaultValue="true"
+            app:title="@string/desktop_show_labels"
+            app:summary="@string/desktop_show_labels_summary" />
+
+        <SwitchPreferenceCompat
+            app:key="pref_allow_rotation"
+            app:defaultValue="false"
+            app:title="@string/allow_rotation_title"
+            app:summary="@string/allow_rotation_summary" />
+
+        <SwitchPreferenceCompat
+            app:key="pref_sleep_gesture"
+            app:defaultValue="false"
+            app:title="@string/pref_sleep_gesture_title"
+            app:summary="@string/pref_sleep_gesture_summary" />
+
+        <ListPreference
+            app:key="pref_grid_size"
+            app:defaultValue="4x5"
+            app:entries="@array/grid_size_entries"
+            app:entryValues="@array/grid_size_values"
+            app:title="@string/grid_size_title"
+            app:summary="@string/grid_size_summary" />
+
+        <SwitchPreferenceCompat
+            app:key="pref_show_desktop_qsb"
+            app:defaultValue="true"
+            app:title="@string/show_desktop_qsb_title"
+            app:summary="@string/show_desktop_qsb_summary" />
+    </PreferenceCategory>
+
+    <!-- Categoría: Menú de aplicaciones -->
+    <PreferenceCategory app:title="@string/app_drawer_category">
+        <SwitchPreferenceCompat
+            app:key="pref_drawer_show_labels"
+            app:defaultValue="true"
+            app:title="@string/drawer_show_labels"
+            app:summary="@string/drawer_show_labels_summary" />
+
+        <SwitchPreferenceCompat
+            app:key="pref_allapps_themed_icons"
+            app:defaultValue="true"
+            app:title="@string/pref_themed_icons_title"
+            app:summary="@string/pref_themed_icons_summary" />
+
+        <SwitchPreferenceCompat
+            app:key="pref_drawer_open_keyboard"
+            app:defaultValue="false"
+            app:title="@string/drawer_open_keyboard_title"
+            app:summary="@string/drawer_open_keyboard_summary" />
+
+        <SwitchPreferenceCompat
+            app:key="pref_drawer_fast_scroller"
+            app:defaultValue="true"
+            app:title="@string/fast_scroller_title"
+            app:summary="@string/fast_scroller_summary" />
+
+        <SwitchPreferenceCompat
+            app:key="pref_suggestions"
+            app:defaultValue="true"
+            app:title="@string/pref_suggestions_title"
+            app:summary="@string/pref_suggestions_summary" />
+
+        <Preference
+            app:key="pref_hidden_apps"
+            app:title="@string/hidden_apps_title"
+            app:summary="@string/hidden_apps_summary" />
+    </PreferenceCategory>
+
+    <!-- Categoría: Dock y gestos -->
+    <PreferenceCategory app:title="@string/dock_category">
         <Preference
             app:key="pref_dock_settings"
             app:title="@string/dock_settings_title"
             app:summary="@string/dock_settings_summary"
             app:fragment="org.lineageos.launcher.settings.DockSettingsFragment" />
-        
+
+        <SwitchPreferenceCompat
+            app:key="pref_show_hotseat_qsb"
+            app:defaultValue="true"
+            app:title="@string/show_hotseat_qsb_title"
+            app:summary="@string/show_hotseat_qsb_summary" />
+
         <Preference
             app:key="pref_lottie_preview"
             app:title="@string/play_lottie_animation"
             app:summary="@string/play_lottie_animation_summary" />
     </PreferenceCategory>
 
+    <!-- Categoría: Apariencia y notificaciones -->
+    <PreferenceCategory app:title="@string/appearance_category">
+        <SwitchPreferenceCompat
+            app:key="pref_icon_badging"
+            app:defaultValue="true"
+            app:title="@string/notification_dots_title"
+            app:summary="@string/notification_dots_summary" />
+    </PreferenceCategory>
+
+    <!-- Categoría: Actualizaciones y Acerca de -->
     <PreferenceCategory app:title="@string/updates_category">
         <Preference
             app:key="pref_check_updates"
@@ -26,6 +128,11 @@
             app:defaultValue="true"
             app:title="@string/auto_update_check"
             app:summary="@string/auto_update_check_summary" />
+
+        <Preference
+            app:key="pref_version_info"
+            app:title="Lineage Launcher v1.0.0"
+            app:summary="Android 15 / 16 / 17 (compileSdk 36) • Trebuchet &amp; GrapheneOS AOSP" />
     </PreferenceCategory>
 
 </PreferenceScreen>

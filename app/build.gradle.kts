@@ -5,14 +5,14 @@ plugins {
 
 android {
     namespace = "org.lineageos.launcher"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "org.lineageos.launcher"
         minSdk = 29
-        targetSdk = 35
-        versionCode = 100
-        versionName = "1.0.0"
+        targetSdk = 36
+        versionCode = 101
+        versionName = "1.0.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {

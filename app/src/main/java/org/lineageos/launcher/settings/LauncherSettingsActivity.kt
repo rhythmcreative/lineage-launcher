@@ -62,6 +62,33 @@ class LauncherSettingsActivity : AppCompatActivity() {
                     true
                 }
             }
+
+            // Setup Notification Dots permission check
+            findPreference<Preference>("pref_icon_badging")?.setOnPreferenceClickListener {
+                try {
+                    val intent = Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS")
+                    startActivity(intent)
+                } catch (e: Exception) {
+                    // Fallback
+                }
+                true
+            }
+
+            // Setup Hidden Apps trigger
+            findPreference<Preference>("pref_hidden_apps")?.setOnPreferenceClickListener {
+                android.widget.Toast.makeText(
+                    requireContext(),
+                    getString(R.string.hidden_apps_summary),
+                    android.widget.Toast.LENGTH_SHORT
+                ).show()
+                true
+            }
+
+            // Setup Version info
+            findPreference<Preference>("pref_version_info")?.apply {
+                title = "Lineage Launcher v${BuildConfig.VERSION_NAME}"
+                summary = "Android 15 / 16 / 17 (compileSdk 36) • Trebuchet & GrapheneOS AOSP"
+            }
         }
     }
 }
