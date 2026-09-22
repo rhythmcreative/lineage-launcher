@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Preference
+        app:key="pref_dock_preview"
+        app:layout="@layout/dock_preview_layout" />
+
+    <SwitchPreferenceCompat
+        app:key="pref_enable_scrollable_dock"
+        app:defaultValue="true"
+        app:title="@string/enable_scrollable_dock"
+        app:summary="@string/enable_scrollable_dock_summary" />
+
+    <SwitchPreferenceCompat
+        app:key="pref_dock_drag_to_new_page"
+        app:defaultValue="true"
+        app:dependency="pref_enable_scrollable_dock"
+        app:title="@string/dock_drag_to_new_page"
+        app:summary="@string/dock_drag_to_new_page_summary" />
+
+    <SwitchPreferenceCompat
+        app:key="pref_dock_infinite_scroll"
+        app:defaultValue="true"
+        app:dependency="pref_enable_scrollable_dock"
+        app:title="@string/infinite_scroll"
+        app:summary="@string/infinite_scroll_summary" />
+
+    <SwitchPreferenceCompat
+        app:key="pref_dock_page_indicators"
+        app:defaultValue="true"
+        app:dependency="pref_enable_scrollable_dock"
+        app:title="@string/page_indicators"
+        app:summary="@string/page_indicators_summary" />
+
+</PreferenceScreen>

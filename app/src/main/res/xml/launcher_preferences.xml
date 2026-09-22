@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/dock_settings_title">
+        <Preference
+            app:key="pref_dock_settings"
+            app:title="@string/dock_settings_title"
+            app:summary="@string/dock_settings_summary"
+            app:fragment="org.lineageos.launcher.settings.DockSettingsFragment" />
+        
+        <Preference
+            app:key="pref_lottie_preview"
+            app:title="@string/play_lottie_animation"
+            app:summary="@string/play_lottie_animation_summary" />
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/updates_category">
+        <Preference
+            app:key="pref_check_updates"
+            app:title="@string/check_for_updates"
+            app:summary="@string/check_for_updates_summary" />
+
+        <SwitchPreferenceCompat
+            app:key="pref_auto_update"
+            app:defaultValue="true"
+            app:title="@string/auto_update_check"
+            app:summary="@string/auto_update_check_summary" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

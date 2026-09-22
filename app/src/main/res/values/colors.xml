@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Light Mode Colors (Clean Monochrome & Material You) -->
+    <color name="launcher_background">#FFFFFF</color>
+    <color name="surface_container">#F2F2F2</color>
+    <color name="surface_container_high">#EAEAEA</color>
+    <color name="on_surface">#1C1C1E</color>
+    <color name="on_surface_variant">#5C5C5E</color>
+    <color name="dock_background">#26000000</color>
+    <color name="dock_border">#33000000</color>
+    <color name="indicator_active">#1C1C1E</color>
+    <color name="indicator_inactive">#501C1C1E</color>
+    <color name="indicator_halo">#80FFFFFF</color>
+    <color name="qsb_background">#33000000</color>
+    <color name="qsb_text">#1C1C1E</color>
+</resources>

@@ -1,0 +1,18 @@
+<resources>
+    <style name="Theme.LineageLauncher" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
+
+    <style name="Theme.LineageLauncher.Home" parent="Theme.LineageLauncher">
+        <item name="android:windowShowWallpaper">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="Theme.LineageLauncher.Settings" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">@color/on_surface</item>
+        <item name="colorSurface">@color/surface_container</item>
+    </style>
+</resources>

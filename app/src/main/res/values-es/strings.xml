@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Lineage Launcher</string>
+    <string name="settings_title">Ajustes de pantalla de inicio</string>
+    <string name="dock_settings_title">Dock desplazable</string>
+    <string name="dock_settings_summary">Configura páginas, bucle e indicadores para el dock inferior</string>
+    <string name="enable_scrollable_dock">Activar dock desplazable</string>
+    <string name="enable_scrollable_dock_summary">Permite la navegación por páginas en la fila inferior</string>
+    <string name="infinite_scroll">Desplazamiento infinito (bucle)</string>
+    <string name="infinite_scroll_summary">Permite pasar continuamente de la última página a la primera</string>
+    <string name="page_indicators">Indicadores de página</string>
+    <string name="page_indicators_summary">Muestra puntos adaptativos Material 3 monocromáticos indicando la página activa</string>
+    <string name="dock_drag_to_new_page">Arrastrar a nueva página</string>
+    <string name="dock_drag_to_new_page_summary">Arrastrar una app al borde del dock abre dinámicamente una nueva página</string>
+    <string name="dock_pages_count">Páginas del dock</string>
+    <string name="dock_animation_preview">Animación y Previsualización</string>
+    <string name="play_lottie_animation">Ver animación de gesto Lottie</string>
+    <string name="play_lottie_animation_summary">Demuestra el gesto de deslizamiento del dock con asistencia de movimiento</string>
+
+    <!-- Actualizaciones -->
+    <string name="updates_category">Actualizaciones</string>
+    <string name="check_for_updates">Buscar actualizaciones</string>
+    <string name="check_for_updates_summary">Versión %1$s • Buscar nuevas versiones en GitHub</string>
+    <string name="auto_update_check">Buscar automáticamente al iniciar</string>
+    <string name="auto_update_check_summary">Avisar cuando se publique una nueva versión en GitHub</string>
+    <string name="checking_updates">Buscando actualizaciones…</string>
+    <string name="no_updates_available">Ya tienes la última versión instalada (%1$s)</string>
+    <string name="update_available_title">Nueva versión disponible: %1$s</string>
+    <string name="update_download_install">Descargar e Instalar</string>
+    <string name="update_downloading">Descargando actualización (%1$d%%)…</string>
+    <string name="update_failed">No se pudo comprobar la actualización. Revisa la conexión.</string>
+    <string name="changelog">Notas de la versión</string>
+    <string name="cancel">Cancelar</string>
+    <string name="close">Cerrar</string>
+
+    <!-- Interfaz -->
+    <string name="search_apps">Buscar aplicaciones…</string>
+    <string name="apps_drawer">Todas las aplicaciones</string>
+    <string name="at_a_glance_date_format">EEEE, d 'de' MMMM</string>
+</resources>

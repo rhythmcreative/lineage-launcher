@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Lineage Launcher</string>
+    <string name="settings_title">Home settings</string>
+    <string name="dock_settings_title">Scrollable Dock</string>
+    <string name="dock_settings_summary">Configure pages, looping, and indicators for the bottom dock</string>
+    <string name="enable_scrollable_dock">Enable scrollable dock</string>
+    <string name="enable_scrollable_dock_summary">Allows multiple horizontal pages in the bottom dock</string>
+    <string name="infinite_scroll">Infinite loop scrolling</string>
+    <string name="infinite_scroll_summary">Allows wrapping smoothly from the last page to the first page</string>
+    <string name="page_indicators">Page indicators</string>
+    <string name="page_indicators_summary">Shows adaptive Material 3 monochrome dots indicating active dock page</string>
+    <string name="dock_drag_to_new_page">Drag to new page</string>
+    <string name="dock_drag_to_new_page_summary">Dragging an app to the dock border dynamically opens a new page</string>
+    <string name="dock_pages_count">Dock pages</string>
+    <string name="dock_animation_preview">Animation &amp; Preview</string>
+    <string name="play_lottie_animation">Play Lottie Swipe Gesture</string>
+    <string name="play_lottie_animation_summary">Demonstrates dock navigation gesture with motion assist</string>
+    
+    <!-- Updates -->
+    <string name="updates_category">Updates</string>
+    <string name="check_for_updates">Check for updates</string>
+    <string name="check_for_updates_summary">Version %1$s • Check GitHub for new releases</string>
+    <string name="auto_update_check">Check automatically on launch</string>
+    <string name="auto_update_check_summary">Notify when a new version is released on GitHub</string>
+    <string name="checking_updates">Checking for updates…</string>
+    <string name="no_updates_available">You have the latest version (%1$s)</string>
+    <string name="update_available_title">Update Available: %1$s</string>
+    <string name="update_download_install">Download &amp; Install</string>
+    <string name="update_downloading">Downloading update (%1$d%%)…</string>
+    <string name="update_failed">Failed to check updates. Please check network connection.</string>
+    <string name="changelog">Changelog</string>
+    <string name="cancel">Cancel</string>
+    <string name="close">Close</string>
+
+    <!-- UI -->
+    <string name="search_apps">Search apps…</string>
+    <string name="apps_drawer">All apps</string>
+    <string name="at_a_glance_date_format">EEEE, MMM d</string>
+</resources>
