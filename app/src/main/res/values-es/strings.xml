@@ -26,7 +26,7 @@
     <string name="no_updates_available">Ya tienes la última versión instalada (%1$s)</string>
     <string name="update_available_title">Nueva versión disponible: %1$s</string>
     <string name="update_download_install">Descargar e Instalar</string>
-    <string name="update_downloading">Descargando actualización (%1$d%%)…</string>
+    <string name="update_downloading">Descargando actualización…</string>
     <string name="update_failed">No se pudo comprobar la actualización. Revisa la conexión.</string>
     <string name="changelog">Notas de la versión</string>
     <string name="cancel">Cancelar</string>
@@ -35,5 +35,5 @@
     <!-- Interfaz -->
     <string name="search_apps">Buscar aplicaciones…</string>
     <string name="apps_drawer">Todas las aplicaciones</string>
-    <string name="at_a_glance_date_format">EEEE, d 'de' MMMM</string>
+    <string name="at_a_glance_date_format">EEEE, d \'de\' MMMM</string>
 </resources>

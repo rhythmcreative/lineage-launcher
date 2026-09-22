@@ -26,7 +26,7 @@
     <string name="no_updates_available">You have the latest version (%1$s)</string>
     <string name="update_available_title">Update Available: %1$s</string>
     <string name="update_download_install">Download &amp; Install</string>
-    <string name="update_downloading">Downloading update (%1$d%%)…</string>
+    <string name="update_downloading">Downloading update…</string>
     <string name="update_failed">Failed to check updates. Please check network connection.</string>
     <string name="changelog">Changelog</string>
     <string name="cancel">Cancel</string>
